@@ -1,0 +1,24 @@
+{
+  "fontsAlias" : {
+      "stdFont": "NanumMyeongjo-Regular",
+      "stdBold": "NanumMyeongjo-ExtraBold",
+      "stdItalic": "NanumMyeongjo-Regular",
+      "stdBoldItalic": "NanumMyeongjo-ExtraBold",
+      "stdMono": "NanumGothic-Regular",
+      "stdMonoBold": "NanumGothic-ExtraBold",
+      "stdMonoItalic": "NanumGothic-Regular",
+      "stdMonoBoldItalic": "NanumGothic-ExtraBold",
+      "stdSans": "NanumGothic-Regular",
+      "stdSansBold": "NanumGothic-ExtraBold",
+      "stdSansItalic": "NanumGothic-Regular",
+      "stdSansBoldItalic": "NanumGothic-ExtraBold"
+  },
+  "styles" : [
+      ["base" , {
+          "wordWrap": "CJK"
+      }],
+      ["literal" , {
+          "wordWrap": "None"
+      }]
+   ]
+}
