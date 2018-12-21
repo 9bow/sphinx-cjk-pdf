@@ -1,14 +1,15 @@
 # Sphinx-CJK-PDF
 
 ## Description
-* This is a docker image for building pdf document based on [Sphinx](http://www.sphinx-doc.org/en/stable/) reST files in CJK(Chinese, Japanese, Korean) fonts. (Using [rst2pdf](https://github.com/rst2pdf/rst2pdf))
-* In this repo., only Korean fonts and settings are provided. If you want to use other fonts, please read the section below.
-* This docker image is running on the [Sphinx container](https://github.com/dockhippie/sphinx) based on a [Python container](https://registry.hub.docker.com/u/webhippie/python/).
+* This is a docker image for building PDF based on [Sphinx](http://www.sphinx-doc.org/en/stable/) reST files in CJK(Chinese, Japanese, Korean) fonts.
+* Since [rst2pdf](https://github.com/rst2pdf/rst2pdf) does not supports Python3, I created this docker image to avoid using virtualenv every time.
+* In this image, only Korean fonts and settings are provided. (If you want to use other fonts, please read [the section](#Add-fonts) below.)
+* This docker image is running on the [webhippie](https://hub.docker.com/u/webhippie)'s [Sphinx container](https://github.com/dockhippie/sphinx) based on a [Python container](https://registry.hub.docker.com/u/webhippie/python/).
 
 
 ## Prerequisite
-* Could get/run docker image/container
-* Should have sphinx documents to build
+* Could get/run docker image/container.
+* Should have sphinx documents to build.
 
 
 ## Quick Start
@@ -37,29 +38,29 @@
 
 
 ## Add fonts
-* You can use other fonts by attaching volume. Add `-v /somewhere/fonts/located:/usr/share/fonts`. (`/somewhere/fonts/located` should be replaced.)
+* Add new fonts to `rootfs/usr/share/fonts`. Then, modify language config file (eg. `samples/ko.json`) to use those fonts.
+* OR, use other fonts by attaching volume. Add `-v /somewhere/fonts/located:/usr/share/fonts`. (`/somewhere/fonts/located` should be replaced.)
   ```sh
     docker run -it -v /somehwere/sphinx/root:/docs -v /somewhere/fonts/located:/usr/share/fonts 9bow/sphinx-cjk-pdf
   ```
-* You should set the fonts name on language config file(eg. `samples/ko.json`).
 
 
 ## Install Sphinx dependencies
 * If you have any dependencies for Sphinx, just modify `Dockerfile` to build new image.
-* OR, just adding `/bin/bash` for installing dependencies once on container.
+* OR, just adding `/bin/bash` for installing dependencies once on the container. (not applied on image)
   ```sh
     docker run -it -v /somehwere/sphinx/root:/docs 9bow/sphinx /bin/bash
   ```
 
 
-## Inherited Docker images
+## Base Docker images
 * [webhippie/sphinx](https://github.com/dockhippie/sphinx)
 * [webhippie/python](https://github.com/dockhippie/python)
 * [webhippie/alpine](https://github.com/dockhippie/alpine)
 
 
 ## Contributing
-* Fork -> Patch -> Push -> Pull Request
+* Fork -> Patch -> Push -> [Pull Request](https://github.com/9bow/sphinx-cjk-pdf/pulls)
 * If you have any free fonts, feel free to add them in `rootfs/usr/share/fonts` and add language config.
 
 
@@ -69,13 +70,9 @@
 
 ## License
 * MIT
-
-
-## Copyright
-```
-Copyright (c) 2018 Junghwan Park <https://github.com/9bow>
-```
+* [OFL](https://scripts.sil.org/OFL) ([Naver Nanum fonts]((https://hangeul.naver.com/2017/nanum)))
 
 
 ## References
 * [Language specific configuration on Sphinx](https://tk0miya.hatenablog.com/entry/20111208/p1)
+* [Korean Nanum fonts by Naver corp.](https://hangeul.naver.com/2017/nanum)
