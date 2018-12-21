@@ -7,11 +7,11 @@
 
 
 ## Prerequisite
-* Can get/run docker image/container
-* Have sphinx documents to build
+* Could get/run docker image/container
+* Should have sphinx documents to build
 
 
-## QuickStart
+## Quick Start
 * Setup Sphinx's configurations in `conf.py`.
   ```python
     # Add rst2pdf extension
@@ -46,6 +46,10 @@
 
 ## Install Sphinx dependencies
 * If you have any dependencies for Sphinx, just modify `Dockerfile` to build new image.
+* OR, just adding `/bin/bash` for installing dependencies once on container.
+  ```sh
+    docker run -it -v /somehwere/sphinx/root:/docs 9bow/sphinx /bin/bash
+  ```
 
 
 ## Inherited Docker images
