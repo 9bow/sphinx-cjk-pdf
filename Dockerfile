@@ -10,6 +10,7 @@ RUN apk update && \
   apk add \
     texlive-full@testing \
     xz \
+    git \
     zlib-dev \
     giflib-dev \
     jpeg-dev && \
@@ -25,7 +26,7 @@ RUN apk update && \
     texlive-full && \
   pip install \
     reportlab \
-    rst2pdf \
+    git+https://github.com/rst2pdf/rst2pdf.git@14668d34523e21faf21ba6bca20e623aa3c33de6 \
     sphinxcontrib-phpdomain \
     sphinxcontrib-golangdomain \
     sphinxcontrib-disqus \
@@ -36,8 +37,7 @@ RUN apk update && \
     sphinxcontrib-imagehelper \
     sphinxcontrib-images \
     sphinx==1.2.2 && \
-  rm -rf /var/cache/apk/* && \
-  sed -i "1546s/ts=document._timeStamp,//g" /usr/lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py
+  rm -rf /var/cache/apk/*
 
 ADD rootfs /
 
