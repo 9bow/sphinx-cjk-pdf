@@ -32,7 +32,7 @@
 * Get docker image && Run container using Sphinx document.
   ```sh
     docker pull 9bow/sphinx-cjk-pdf:latest
-    docker run -it -v /somehwere/sphinx/root:/docs 9bow/sphinx
+    docker run -it -v /somehwere/sphinx/root:/docs 9bow/sphinx-cjk-pdf
   ```
 * Done. You can find pdf file on `_build/pdf/` under Sphinx's document root directory.
 
